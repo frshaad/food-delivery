@@ -27,7 +27,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'c7.webp',
     calories: 275,
     price: 29,
-    quantity: 4,
+    quantity: 0,
   },
   {
     name: 'Mega Truffle',
@@ -35,7 +35,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'i1.webp',
     calories: 243,
     price: 13,
-    quantity: 6,
+    quantity: 0,
   },
   {
     name: 'Pepsi',
@@ -43,7 +43,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'd2.webp',
     calories: 112,
     price: 9,
-    quantity: 7,
+    quantity: 0,
   },
   {
     name: 'Green Curry',
@@ -51,7 +51,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'cu6.webp',
     calories: 206,
     price: 14,
-    quantity: 2,
+    quantity: 0,
   },
   {
     name: 'Greek Chicken Bowls',
@@ -59,7 +59,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'c3.webp',
     calories: 385,
     price: 29,
-    quantity: 4,
+    quantity: 0,
   },
   {
     name: 'Watermelon',
@@ -67,7 +67,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'f10.webp',
     calories: 30,
     price: 7,
-    quantity: 14,
+    quantity: 0,
   },
   {
     name: 'Pomegranate',
@@ -75,7 +75,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'f6.webp',
     calories: 68,
     price: 12,
-    quantity: 9,
+    quantity: 0,
   },
   {
     name: 'Asian Tilapia',
@@ -83,7 +83,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'fi2.webp',
     calories: 212,
     price: 28,
-    quantity: 6,
+    quantity: 0,
   },
   {
     name: 'Spinach Rice',
@@ -99,7 +99,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'f2.webp',
     calories: 50,
     price: 12,
-    quantity: 8,
+    quantity: 0,
   },
   {
     name: 'Japanese Beef Curry',
@@ -107,7 +107,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'cu1.webp',
     calories: 341,
     price: 19,
-    quantity: 3,
+    quantity: 0,
   },
   {
     name: 'Golden Tofu Curry',
@@ -123,7 +123,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'fi3.webp',
     calories: 270,
     price: 35,
-    quantity: 5,
+    quantity: 0,
   },
   {
     name: 'Chana Saag Curry',
@@ -131,7 +131,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'cu5.webp',
     calories: 360,
     price: 21,
-    quantity: 5,
+    quantity: 0,
   },
   {
     name: 'Bournville',
@@ -147,7 +147,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'c2.webp',
     calories: 203,
     price: 23,
-    quantity: 6,
+    quantity: 0,
   },
   {
     name: 'Chicken Florentine',
@@ -155,7 +155,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'c6.webp',
     calories: 295,
     price: 26.5,
-    quantity: 7,
+    quantity: 0,
   },
   {
     name: 'Coca Cola',
@@ -163,7 +163,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'd8.webp',
     calories: 108,
     price: 8,
-    quantity: 13,
+    quantity: 0,
   },
   {
     name: 'RedBull',
@@ -171,7 +171,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'd1.webp',
     calories: 100,
     price: 8,
-    quantity: 8,
+    quantity: 0,
   },
   {
     name: 'Banana',
@@ -179,7 +179,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'f9.webp',
     calories: 89,
     price: 9,
-    quantity: 18,
+    quantity: 0,
   },
   {
     name: 'Tilapia with Jasmine Rice',
@@ -187,7 +187,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'r3.webp',
     calories: 412,
     price: 34,
-    quantity: 3,
+    quantity: 0,
   },
   {
     name: 'Baked Fish Tacos',
@@ -195,7 +195,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'fi1.webp',
     calories: 296,
     price: 33,
-    quantity: 5,
+    quantity: 0,
   },
   {
     name: 'Strawberry',
@@ -203,7 +203,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'f1.webp',
     calories: 59,
     price: 8,
-    quantity: 15,
+    quantity: 0,
   },
   {
     name: 'Blackberry',
@@ -211,7 +211,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'f3.webp',
     calories: 43,
     price: 7,
-    quantity: 12,
+    quantity: 0,
   },
   {
     name: 'Monster Energy',
@@ -219,7 +219,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'd3.webp',
     calories: 158,
     price: 13,
-    quantity: 7,
+    quantity: 0,
   },
   {
     name: 'Chicken Curry',
@@ -227,7 +227,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'cu3.webp',
     calories: 420,
     price: 32,
-    quantity: 6,
+    quantity: 0,
   },
   {
     name: 'Chicken Riggies',
@@ -235,7 +235,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'c1.webp',
     calories: 340,
     price: 23,
-    quantity: 6,
+    quantity: 0,
   },
   {
     name: 'Uva Negra',
@@ -243,7 +243,7 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'f4.webp',
     calories: 68,
     price: 11,
-    quantity: 12,
+    quantity: 0,
   },
   {
     name: 'Lemon Rice Pilaf',
@@ -251,6 +251,6 @@ export const initialFoods: Food[] = [
     imageUrl: IMG_BASE_URL + 'r1.webp',
     calories: 213,
     price: 19,
-    quantity: 7,
+    quantity: 0,
   },
 ];
