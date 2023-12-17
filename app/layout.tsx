@@ -4,6 +4,9 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import StoreProvider from '@/components/StoreProvider';
+import { ThemeProvider } from '@/components/ThemeProvider';
+
+import Header from './_components/Header';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,9 +21,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <StoreProvider>
-        <body className={inter.className}>{children}</body>
+        <body className={`mx-auto w-11/12 max-w-5xl ${inter.className}`}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            <main>{children}</main>
+          </ThemeProvider>
+        </body>
       </StoreProvider>
     </html>
   );
