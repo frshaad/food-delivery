@@ -1,6 +1,6 @@
 import { fetchFoods } from '@/helper/fetchAllFoods';
 
-import FoodItem from './_components/FoodItem';
+import FoodCard from './_components/FoodCard';
 
 export default async function HomePage() {
   const foods = await fetchFoods();
@@ -8,10 +8,10 @@ export default async function HomePage() {
 
   return (
     <div>
-      <h1>HomePage</h1>
-      <ul className="space-y-4">
+      <h1 className="mb-20">HomePage</h1>
+      <ul className="grid grid-cols-1 items-center justify-center space-y-4 px-5 sm:grid-cols-2 md:px-10 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
         {selectedFood.map(food => (
-          <FoodItem key={food.id} food={food} />
+          <FoodCard key={food.id} food={food} />
         ))}
       </ul>
     </div>
