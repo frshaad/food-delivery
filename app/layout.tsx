@@ -28,8 +28,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Header />
-            <main>{children}</main>
+            <div className="h-screen bg-secondary">
+              <Header />
+              <main className="h-fit">{children}</main>
+            </div>
           </ThemeProvider>
         </body>
       </StoreProvider>
