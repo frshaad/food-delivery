@@ -10,7 +10,7 @@ type Food = {
   quantity: number;
 };
 
-enum Categories {
+export enum Categories {
   chicken = '0aa3ed9a-c173-4340-b6c7-4b4fb5a5a1cc',
   curry = 'a3a2dc14-9464-4537-8969-27e671ac761a',
   icecream = 'bca39133-25e1-4e38-ba34-22821d8e0773',

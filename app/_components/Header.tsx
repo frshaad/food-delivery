@@ -1,20 +1,34 @@
-import { Github } from 'lucide-react';
+import { FishSymbol } from 'lucide-react';
+import Link from 'next/link';
 
-import { Button } from '@/components/ui/button';
+import { logoFont } from '@/fonts';
+import { cn } from '@/lib/utils';
 
+import CartTrigger from './CartTrigger';
+import SourceCodeBtn from './SourceCodeBtn';
 import ThemeSwitch from './ThemeSwitch';
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between py-6">
-      <div></div>
-      <div className="flex items-center gap-2">
-        <Button variant="outline" size="icon">
-          <a href="https://github.com/frshaad/food-delivery">
-            <Github />
-          </a>
-        </Button>
-        <ThemeSwitch />
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center justify-between ">
+        <Link
+          href="/"
+          className={cn(
+            'flex items-center gap-4 text-2xl font-bold text-primary',
+            logoFont.className,
+          )}
+        >
+          <FishSymbol size={40} />
+          <span className="relative top-[1px]">Fin & Flavor</span>
+        </Link>
+        <div className="flex items-center gap-12">
+          <CartTrigger />
+          <div className="flex items-center gap-3">
+            <SourceCodeBtn />
+            <ThemeSwitch />
+          </div>
+        </div>
       </div>
     </header>
   );

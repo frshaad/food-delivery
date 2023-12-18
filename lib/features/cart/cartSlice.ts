@@ -24,6 +24,9 @@ const cartSlice = createSlice({
         );
       } else {
         state.cartItems.push(action.payload);
+        state.cartItems.map(item =>
+          item.id === action.payload.id ? item.quantity++ : state.cartItems,
+        );
       }
     },
     addToCart: (state, action: PayloadAction<Food>) => {
