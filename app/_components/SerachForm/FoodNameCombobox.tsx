@@ -1,8 +1,8 @@
 'use client';
 
 import { Food } from '@prisma/client';
-import { Check, ChevronsUpDown } from 'lucide-react';
-import { useState } from 'react';
+import { Check, ChevronsUpDown, Salad } from 'lucide-react';
+import { Dispatch, SetStateAction, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -21,11 +21,12 @@ import { cn } from '@/lib/utils';
 
 type Props = {
   foods: Food[];
+  foodId: string;
+  setFoodId: Dispatch<SetStateAction<string>>;
 };
 
-export function FoodNameCombobox({ foods }: Props) {
+export function FoodNameCombobox({ foods, foodId, setFoodId }: Props) {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState('');
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -36,15 +37,16 @@ export function FoodNameCombobox({ foods }: Props) {
           aria-expanded={open}
           className="w-64 justify-between"
         >
-          {value
-            ? foods.find(food => food.id === value)?.name
-            : 'Select food...'}
+          <Salad />
+          {foodId
+            ? foods.find(food => food.id === foodId)?.name
+            : 'Search a Food...'}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-64 p-0">
         <Command>
-          <CommandInput placeholder="Search food..." />
+          <CommandInput placeholder="Search a Food..." />
           <CommandEmpty>No food found.</CommandEmpty>
           <CommandGroup>
             {foods.map(food => (
@@ -52,14 +54,14 @@ export function FoodNameCombobox({ foods }: Props) {
                 key={food.id}
                 value={food.id}
                 onSelect={currentValue => {
-                  setValue(currentValue === value ? '' : currentValue);
+                  setFoodId(currentValue === foodId ? '' : currentValue);
                   setOpen(false);
                 }}
               >
                 <Check
                   className={cn(
                     'mr-2 h-4 w-4',
-                    value === food.id ? 'opacity-100' : 'opacity-0',
+                    foodId === food.id ? 'opacity-100' : 'opacity-0',
                   )}
                 />
                 {food.name}

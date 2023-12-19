@@ -1,5 +1,6 @@
 import './globals.css';
 
+import { ConfigProvider } from 'antd';
 import type { Metadata } from 'next';
 
 import StoreProvider from '@/components/StoreProvider';
@@ -28,10 +29,24 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <div className="h-screen bg-secondary">
-              <Header />
-              <main className="h-fit">{children}</main>
-            </div>
+            <ConfigProvider
+              theme={{
+                components: {
+                  Slider: {
+                    handleColor: '#FF8759',
+                    dotActiveBorderColor: '#FF8759',
+                    trackBg: '#FF8759',
+                    trackHoverBg: '#FF8759',
+                    handleActiveColor: '#F97316',
+                  },
+                },
+              }}
+            >
+              <div className="h-screen bg-secondary">
+                <Header />
+                <main className="h-fit">{children}</main>
+              </div>
+            </ConfigProvider>
           </ThemeProvider>
         </body>
       </StoreProvider>

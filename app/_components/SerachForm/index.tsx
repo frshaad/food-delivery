@@ -1,86 +1,108 @@
 'use client';
 
-import { zodResolver } from '@hookform/resolvers/zod';
 import { Food } from '@prisma/client';
-import { useSearchParams } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import * as z from 'zod';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { getKeyByValue } from '@/helper/getEnumKey';
 
 import CategorySelect from './CategorySelect';
 import { FoodNameCombobox } from './FoodNameCombobox';
+import SearchSlider from './SearchSlider';
 
 type Props = {
   foods: Food[];
 };
 
-const formSchema = z.object({
-  foodName: z.string().max(50).optional(),
-  category: z.string().min(1).optional(),
-  minCalories: z.number().min(0).optional(),
-  maxCalories: z.number().min(0).optional(),
-  minPrice: z.number().min(0).optional(),
-  maxPrice: z.number().min(0).optional(),
-});
-
 export default function SearchForm({ foods }: Props) {
-  const searchParams = useSearchParams();
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      foodName: '',
-      category: 'chicken',
-    },
-  });
+  const router = useRouter();
+  const searchParams = useSearchParams()!;
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  const [foodId, setFoodId] = useState('');
+  const [category, setCategory] = useState('');
+  const [calorieRange, setCalorieRange] = useState<number[]>([]);
+  const [priceRange, setPriceRange] = useState<number[]>([]);
+
+  const selectedFood = foods.find(food => food.id === foodId)?.name;
+  const selectedCategory = getKeyByValue(category);
+  const minCalorieRange = calorieRange[0];
+  const maxCalorieRange = calorieRange[1];
+  const minPrice = priceRange[0];
+  const maxPrice = priceRange[1];
+
+  function handleSearch() {
+    const params = new URLSearchParams(searchParams);
+    if (selectedFood) {
+      params.set('food', selectedFood);
+    }
+    if (selectedCategory) {
+      params.set('category', selectedCategory);
+    }
+    if (minCalorieRange) {
+      params.set('min-calories', minCalorieRange.toString());
+    }
+    if (maxCalorieRange) {
+      params.set('max-calories', maxCalorieRange.toString());
+    }
+    if (minPrice) {
+      params.set('min-price', minPrice.toString());
+    }
+    if (maxPrice) {
+      params.set('max-price', maxPrice.toString());
+    }
+
+    const queryParam = params.toString();
+
+    if (queryParam.length > 0) {
+      router.push('/foods?' + queryParam);
+    } else {
+      router.push('/foods');
+    }
   }
 
   return (
-    <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="max-w-lg space-y-4"
-      >
-        <FormField
-          control={form.control}
-          name="foodName"
-          render={({ field }) => (
-            <FormItem className="flex items-center gap-4">
-              <FormLabel>Food&apos;s Name:</FormLabel>
-              <FormControl>
-                <FoodNameCombobox foods={foods} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+    <div className="mt-10 flex items-center justify-center">
+      <Card className="w-full max-w-lg">
+        <CardHeader>
+          <CardTitle>Search Foods</CardTitle>
+          <CardDescription>Set your plate</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-8">
+          <div className="flex items-center justify-between">
+            <FoodNameCombobox
+              foods={foods}
+              foodId={foodId}
+              setFoodId={setFoodId}
+            />
+            <CategorySelect setCategory={setCategory} />
+          </div>
 
-        <FormField
-          control={form.control}
-          name="category"
-          render={({ field }) => (
-            <FormItem className="flex items-center gap-4">
-              <FormLabel>Category:</FormLabel>
-              <FormControl>
-                <CategorySelect />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Search</Button>
-      </form>
-    </Form>
+          <SearchSlider
+            min={20}
+            max={300}
+            label="Calories"
+            setUpdatedRange={setCalorieRange}
+          />
+          <SearchSlider
+            min={5}
+            max={50}
+            label="Price"
+            setUpdatedRange={setPriceRange}
+          />
+        </CardContent>
+        <CardFooter>
+          <Button onClick={handleSearch}>Search</Button>
+        </CardFooter>
+      </Card>
+    </div>
   );
 }

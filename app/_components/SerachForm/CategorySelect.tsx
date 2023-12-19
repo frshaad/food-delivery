@@ -1,4 +1,5 @@
-import { Food } from '@prisma/client';
+import { MenuSquare } from 'lucide-react';
+import { Dispatch, SetStateAction } from 'react';
 
 import {
   Select,
@@ -19,11 +20,16 @@ const categories = [
   { name: 'rice', id: Categories.rice },
 ];
 
-export default function CategorySelect() {
+type Props = {
+  setCategory: Dispatch<SetStateAction<string>>;
+};
+
+export default function CategorySelect({ setCategory }: Props) {
   return (
-    <Select>
+    <Select onValueChange={setCategory}>
       <SelectTrigger className="w-44 capitalize">
-        <SelectValue placeholder="category" />
+        <MenuSquare className="mr-2" />
+        <SelectValue placeholder="Select category" />
       </SelectTrigger>
       <SelectContent>
         {categories.map(category => (
