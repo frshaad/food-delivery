@@ -27,10 +27,30 @@ export default function SearchForm({ foods }: Props) {
   const router = useRouter();
   const searchParams = useSearchParams()!;
 
+  const defaultMinPrice = foods.reduce((p, c) => {
+    return c.price < p.price ? c : p;
+  }).price;
+  const defaultMaxPrice = foods.reduce((p, c) => {
+    return c.price > p.price ? c : p;
+  }).price;
+
+  const defaultMinCalorie = foods.reduce((p, c) => {
+    return c.calories < p.calories ? c : p;
+  }).calories;
+  const defaultMaxCalorie = foods.reduce((p, c) => {
+    return c.calories > p.calories ? c : p;
+  }).calories;
+
   const [foodId, setFoodId] = useState('');
   const [category, setCategory] = useState('');
-  const [calorieRange, setCalorieRange] = useState<number[]>([]);
-  const [priceRange, setPriceRange] = useState<number[]>([]);
+  const [calorieRange, setCalorieRange] = useState<number[]>([
+    defaultMinCalorie,
+    defaultMaxCalorie,
+  ]);
+  const [priceRange, setPriceRange] = useState<number[]>([
+    defaultMinPrice,
+    defaultMaxPrice,
+  ]);
 
   const selectedFood = foods.find(food => food.id === foodId)?.name;
   const selectedCategory = getKeyByValue(category);
@@ -71,7 +91,7 @@ export default function SearchForm({ foods }: Props) {
 
   return (
     <div className="mt-10 flex items-center justify-center">
-      <Card className="w-full max-w-lg">
+      <Card className="w-full max-w-lg space-y-5">
         <CardHeader>
           <CardTitle>Search Foods</CardTitle>
           <CardDescription>Set your plate</CardDescription>
@@ -90,17 +110,19 @@ export default function SearchForm({ foods }: Props) {
             min={20}
             max={300}
             label="Calories"
+            values={calorieRange}
             setUpdatedRange={setCalorieRange}
           />
           <SearchSlider
             min={5}
             max={50}
+            values={priceRange}
             label="Price"
             setUpdatedRange={setPriceRange}
           />
         </CardContent>
-        <CardFooter>
-          <Button onClick={handleSearch}>Search</Button>
+        <CardFooter className="flex justify-end">
+          <Button onClick={handleSearch}>Search Food</Button>
         </CardFooter>
       </Card>
     </div>

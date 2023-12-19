@@ -28,7 +28,7 @@ export default function CategorySelect({ setCategory }: Props) {
   return (
     <Select onValueChange={setCategory}>
       <SelectTrigger className="w-44 capitalize">
-        <MenuSquare className="mr-2" />
+        <MenuSquare className="mr-2" size={20} />
         <SelectValue placeholder="Select category" />
       </SelectTrigger>
       <SelectContent>

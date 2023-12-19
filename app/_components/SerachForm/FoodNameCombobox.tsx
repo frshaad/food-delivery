@@ -37,7 +37,7 @@ export function FoodNameCombobox({ foods, foodId, setFoodId }: Props) {
           aria-expanded={open}
           className="w-64 justify-between"
         >
-          <Salad />
+          <Salad size={20} />
           {foodId
             ? foods.find(food => food.id === foodId)?.name
             : 'Search a Food...'}
