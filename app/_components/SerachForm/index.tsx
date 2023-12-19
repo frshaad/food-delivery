@@ -67,16 +67,16 @@ export default function SearchForm({ foods }: Props) {
     if (selectedCategory) {
       params.set('category', selectedCategory);
     }
-    if (minCalorieRange) {
+    if (minCalorieRange && minCalorieRange !== defaultMinCalorie) {
       params.set('min-calories', minCalorieRange.toString());
     }
-    if (maxCalorieRange) {
+    if (maxCalorieRange && maxCalorieRange !== defaultMaxCalorie) {
       params.set('max-calories', maxCalorieRange.toString());
     }
-    if (minPrice) {
+    if (minPrice && minPrice !== defaultMinPrice) {
       params.set('min-price', minPrice.toString());
     }
-    if (maxPrice) {
+    if (maxPrice && maxPrice !== defaultMaxPrice) {
       params.set('max-price', maxPrice.toString());
     }
 
@@ -89,15 +89,23 @@ export default function SearchForm({ foods }: Props) {
     }
   }
 
+  const isInSearchMode =
+    !!selectedFood ||
+    !!selectedCategory ||
+    minCalorieRange !== defaultMinCalorie ||
+    maxCalorieRange !== defaultMaxCalorie ||
+    minPrice !== defaultMinPrice ||
+    maxPrice !== defaultMaxPrice;
+
   return (
-    <div className="mt-10 flex items-center justify-center">
+    <div className="z-10 mt-10 flex items-center justify-center">
       <Card className="w-full max-w-lg space-y-5">
         <CardHeader>
           <CardTitle>Search Foods</CardTitle>
-          <CardDescription>Set your plate</CardDescription>
+          <CardDescription>Savoring Moments, Creating Memories</CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-2">
             <FoodNameCombobox
               foods={foods}
               foodId={foodId}
@@ -107,22 +115,24 @@ export default function SearchForm({ foods }: Props) {
           </div>
 
           <SearchSlider
-            min={20}
-            max={300}
+            min={defaultMinCalorie}
+            max={defaultMaxCalorie}
             label="Calories"
             values={calorieRange}
             setUpdatedRange={setCalorieRange}
           />
           <SearchSlider
-            min={5}
-            max={50}
+            min={defaultMinPrice}
+            max={defaultMaxPrice}
             values={priceRange}
             label="Price"
             setUpdatedRange={setPriceRange}
           />
         </CardContent>
         <CardFooter className="flex justify-end">
-          <Button onClick={handleSearch}>Search Food</Button>
+          <Button onClick={handleSearch} className="w-full">
+            {isInSearchMode ? 'Search for food' : 'Explore All Foods'}
+          </Button>
         </CardFooter>
       </Card>
     </div>

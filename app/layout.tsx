@@ -44,7 +44,9 @@ export default function RootLayout({
             >
               <div className="h-screen bg-secondary">
                 <Header />
-                <main className="h-fit">{children}</main>
+                <main className="flex h-full items-center justify-center">
+                  {children}
+                </main>
               </div>
             </ConfigProvider>
           </ThemeProvider>
