@@ -15,14 +15,14 @@ export default function Header() {
         <Link
           href="/"
           className={cn(
-            'flex items-center gap-4 text-2xl font-bold text-primary',
+            'flex items-center gap-4 sm:text-2xl font-bold text-primary',
             logoFont.className,
           )}
         >
           <FishSymbol size={40} />
           <span className="relative top-[1px]">Fin & Flavor</span>
         </Link>
-        <div className="flex items-center gap-12">
+        <div className="flex items-center gap-6 sm:gap-12">
           <CartTrigger />
           <div className="flex items-center gap-3">
             <SourceCodeBtn />

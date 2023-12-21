@@ -41,8 +41,8 @@ export default function SearchSlider({
 
   return (
     <div
-      className={cn('flex', {
-        'flex-col gap-4 border rounded-md p-3': sidebar,
+      className={cn('flex gap-4 ', {
+        'flex-col border rounded-md p-3': sidebar,
         'items-center justify-between': !sidebar,
       })}
     >
@@ -55,10 +55,7 @@ export default function SearchSlider({
         {type}
       </p>
       <div className="flex flex-[3] items-center justify-between gap-2">
-        <Badge
-          variant="outline"
-          className="flex min-w-[45px] items-center justify-center"
-        >
+        <Badge variant="outline" className="flex items-center justify-center">
           {min}
         </Badge>
         <Slider
@@ -70,10 +67,7 @@ export default function SearchSlider({
           onChange={setUpdatedRange}
           className="w-full"
         />
-        <Badge
-          variant="outline"
-          className="flex min-w-[45px] items-center justify-center"
-        >
+        <Badge variant="outline" className="flex items-center justify-center">
           {max}
         </Badge>
       </div>
