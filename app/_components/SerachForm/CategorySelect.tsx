@@ -1,4 +1,6 @@
-import { MenuSquare } from 'lucide-react';
+'use client';
+
+import { useSearchParams } from 'next/navigation';
 import { Dispatch, SetStateAction } from 'react';
 
 import {
@@ -9,6 +11,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Categories } from '@/prisma/initialData';
+import { Category } from '@/types';
 
 const categories = [
   { name: 'chicken', id: Categories.chicken },
@@ -25,13 +28,23 @@ type Props = {
 };
 
 export default function CategorySelect({ setCategory }: Props) {
+  const searchParams = useSearchParams();
+  const categoryFromUrl = searchParams.get('category') as Category;
+  const defaultCategory = Categories[categoryFromUrl];
+
   return (
-    <Select onValueChange={setCategory}>
-      <SelectTrigger className="w-44 capitalize">
-        <MenuSquare className="mr-2" size={20} />
+    <Select onValueChange={setCategory} defaultValue={defaultCategory}>
+      <SelectTrigger className="w-full capitalize">
         <SelectValue placeholder="Select category" />
       </SelectTrigger>
       <SelectContent>
+        <SelectItem
+          key={'0'}
+          value={'none'}
+          className="cursor-pointer capitalize"
+        >
+          {'---'}
+        </SelectItem>
         {categories.map(category => (
           <SelectItem
             key={category.id}

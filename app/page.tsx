@@ -1,8 +1,6 @@
 import Image from 'next/image';
 
-import { logoFont } from '@/fonts';
 import { fetchFoods } from '@/helper/fetchAllFoods';
-import { cn } from '@/lib/utils';
 import ShowcasePic from '@/public/food-show.webp';
 
 import SearchForm from './_components/SerachForm';
@@ -15,7 +13,7 @@ export default async function HomePage() {
       <div className="flex flex-1 flex-col items-center justify-center gap-3">
         <SearchForm foods={foods} />
       </div>
-      <div className="relative flex w-full flex-1 items-center justify-center">
+      <div className="relative hidden w-full flex-1 scale-90 items-center justify-center md:flex lg:scale-100">
         <Image alt="showcase background" src={ShowcasePic} priority />
       </div>
     </section>
