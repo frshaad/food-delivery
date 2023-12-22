@@ -65,7 +65,7 @@ export default function CartTrigger() {
             )}
           </div>
         </SheetTrigger>
-        <SheetContent className="overflow-x-hidden overflow-y-scroll scroll-smooth bg-secondary">
+        <SheetContent className="overflow-x-hidden overflow-y-scroll scroll-smooth">
           <SheetHeader>
             <SheetTitle>Your Cart</SheetTitle>
             <SheetDescription>Review Your Cart</SheetDescription>

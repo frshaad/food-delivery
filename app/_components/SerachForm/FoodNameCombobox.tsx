@@ -18,7 +18,8 @@ type Props = {
 
 export function FoodNameCombobox({ setQueryString }: Props) {
   const searchParams = useSearchParams();
-  const [value, setValue] = useState<string>('');
+  const defaultValue = searchParams.get('searchQuery');
+  const [value, setValue] = useState<string>(defaultValue ? defaultValue : '');
   const debouncedValue = useDebounce<string>(value, 1000);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

@@ -42,9 +42,9 @@ export default function RootLayout({
                 },
               }}
             >
-              <div className="h-screen bg-secondary">
+              <div className="">
                 <Header />
-                <main className="flex h-full items-center justify-center">
+                <main className="flex h-full items-center justify-center pt-16">
                   {children}
                 </main>
               </div>

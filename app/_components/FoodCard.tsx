@@ -33,6 +33,7 @@ export default function FoodCard({ food }: Props) {
             width={300}
             height={300}
             className="h-full w-full object-contain"
+            priority
           />
         </div>
         {isFoodInCart ? (

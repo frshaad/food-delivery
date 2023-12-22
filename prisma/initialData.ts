@@ -10,15 +10,15 @@ type Food = {
   quantity: number;
 };
 
-export enum Categories {
-  chicken = '0aa3ed9a-c173-4340-b6c7-4b4fb5a5a1cc',
-  curry = 'a3a2dc14-9464-4537-8969-27e671ac761a',
-  icecream = 'bca39133-25e1-4e38-ba34-22821d8e0773',
-  fruit = '8ab07931-e33b-42c9-a02b-50835e5c7f33',
-  drink = '7a1eec6c-8360-4a4a-9c38-277a1c761354',
-  fish = '3fba8e02-b725-481b-b0d8-c947bad6c600',
-  rice = 'b23f5fb4-4d38-46f8-92d8-fb6ecfda96db',
-}
+export const Categories = {
+  chicken: '0aa3ed9a-c173-4340-b6c7-4b4fb5a5a1cc',
+  curry: 'a3a2dc14-9464-4537-8969-27e671ac761a',
+  icecream: 'bca39133-25e1-4e38-ba34-22821d8e0773',
+  fruit: '8ab07931-e33b-42c9-a02b-50835e5c7f33',
+  drink: '7a1eec6c-8360-4a4a-9c38-277a1c761354',
+  fish: '3fba8e02-b725-481b-b0d8-c947bad6c600',
+  rice: 'b23f5fb4-4d38-46f8-92d8-fb6ecfda96db',
+};
 
 export const initialFoods: Food[] = [
   {

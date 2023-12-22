@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/card';
 import { getKeyByValue } from '@/helper/getEnumKey';
 import { cn } from '@/lib/utils';
+import { Category } from '@/types';
 
 import { calcRange } from './calcMinMax.util';
 import CategorySelect from './CategorySelect';
@@ -55,6 +56,8 @@ export default function SearchForm({ foods, sidebar }: Props) {
   const handleSearch = useCallback(() => {
     if (queryString) {
       params.set('searchQuery', queryString);
+    } else if (queryString.length === 0) {
+      params.delete('searchQuery');
     }
     if (selectedCategory) {
       params.set('category', selectedCategory);
@@ -141,6 +144,19 @@ export default function SearchForm({ foods, sidebar }: Props) {
             setUpdatedRange={setPriceRange}
             sidebar={sidebar}
           />
+          {sidebar && (
+            <Button
+              className="w-full"
+              onClick={() => {
+                setQueryString('');
+                setCategory('none');
+                setCalorieRange([defaultMinCalorie, defaultMaxCalorie]);
+                setPriceRange([defaultMinPrice, defaultMaxPrice]);
+              }}
+            >
+              Clear filters
+            </Button>
+          )}
         </CardContent>
         {!sidebar && (
           <CardFooter className="flex justify-end">

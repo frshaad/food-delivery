@@ -9,11 +9,11 @@ export default async function HomePage() {
   const foods = await fetchFoods();
 
   return (
-    <section className="relative flex h-max items-center justify-between">
+    <section className="relative -mt-36 flex h-screen items-center justify-between">
       <div className="flex flex-1 items-center justify-center gap-3">
         <SearchForm foods={foods} />
       </div>
-      <div className="relative hidden w-full flex-1 scale-90 items-center justify-center md:flex lg:scale-100">
+      <div className="relative hidden w-full flex-1 scale-90 items-center justify-center lg:flex lg:scale-100">
         <Image alt="showcase background" src={ShowcasePic} priority />
       </div>
     </section>
