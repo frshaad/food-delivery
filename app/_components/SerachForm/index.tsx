@@ -60,7 +60,7 @@ export default function NewSearchForm({ foods }: Props) {
   }, [pathname, router, updateQueryString]);
 
   return (
-    <Card>
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Card Title</CardTitle>
         <CardDescription>Card Description</CardDescription>

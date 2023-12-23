@@ -8,7 +8,7 @@ type Props = {
 
 export default function SidebarFilter({ foods }: Props) {
   return (
-    <div className="sticky top-20 w-full md:w-[500px]">
+    <div className="top-20 w-full max-w-xs md:sticky">
       <SearchForm foods={foods} />
     </div>
   );

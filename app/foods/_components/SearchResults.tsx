@@ -4,6 +4,13 @@ import { Food } from '@prisma/client';
 import { useSearchParams } from 'next/navigation';
 
 import FoodCard from '@/app/_components/FoodCard';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Categories } from '@/prisma/initialData';
 import { Category } from '@/types';
 
@@ -39,18 +46,19 @@ export default function SearchResults({ foods }: Props) {
     .filter(food => (minPriceParam ? food.price >= minPriceParam : food))
     .filter(food => (maxPriceParam ? food.price <= maxPriceParam : food));
 
-  // show the results
   return (
-    <div className="w-full space-y-20 px-2 py-10">
-      <h3 className="text-lg">
-        Number of foods found:{' '}
-        <span className="font-medium">{filterdFoods.length}</span>
-      </h3>
-      <div className="grid grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+    <Card className="mb-20 w-fit space-y-10 sm:w-full">
+      <CardHeader>
+        <CardTitle>Search Results</CardTitle>
+        <CardDescription>
+          Number of foods found: {filterdFoods.length}
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="grid grid-cols-1 gap-x-2 gap-y-20 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 lg:gap-x-6 2xl:grid-cols-3">
         {filterdFoods.map(food => (
           <FoodCard key={food.id} food={food} />
         ))}
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }
