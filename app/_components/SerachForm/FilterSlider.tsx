@@ -13,7 +13,6 @@ import { calcRange } from './calcRange.util';
 type Props = {
   type: 'price' | 'calorie';
   foods: Food[];
-
   updateQueryString: (arr: [name: string, value: string][]) => string;
 };
 
