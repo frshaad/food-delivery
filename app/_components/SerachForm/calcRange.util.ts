@@ -1,6 +1,9 @@
 import type { Food } from '@prisma/client';
 
-export function calcRange(array: Food[], identifier: 'price' | 'calories') {
+export function calcRange(array: Food[], identifier: 'price' | 'calorie') {
+  if (!array) {
+    throw new Error('Foods are undefined');
+  }
   if (identifier === 'price') {
     const min = array.reduce((p, c) => {
       return c.price < p.price ? c : p;
