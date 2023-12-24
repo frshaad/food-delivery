@@ -32,7 +32,8 @@ export default function FoodCard({ food }: Props) {
             alt=""
             width={300}
             height={300}
-            className="h-full w-full object-contain"
+            className="h-full w-full object-contain opacity-0 transition-opacity duration-300"
+            onLoadingComplete={image => image.classList.remove('opacity-0')}
             priority
           />
         </div>

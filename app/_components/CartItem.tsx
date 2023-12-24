@@ -31,13 +31,16 @@ export default function CartItem({ food }: Props) {
           <p className="text-xl font-medium capitalize">{name}</p>
           <p className="text-sm capitalize">{category}</p>
         </div>
-        <Image
-          alt={`${name}'s picture`}
-          src={imageUrl}
-          width={80}
-          height={80}
-          className="max-h-24 w-auto"
-        />
+        <div className="h-24 w-auto">
+          <Image
+            alt={`${name}'s picture`}
+            src={imageUrl}
+            width={80}
+            height={80}
+            className="max-h-24 w-auto opacity-0 transition-opacity duration-300"
+            onLoadingComplete={image => image.classList.remove('opacity-0')}
+          />
+        </div>
       </CardContent>
 
       <CardFooter className="flex flex-col gap-3">
