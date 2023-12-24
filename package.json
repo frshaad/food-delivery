@@ -11,7 +11,8 @@
     "format:fix": "prettier --write .",
     "types:check": "tsc --pretty --noEmit",
     "lint:check": "eslint . --ext ts --ext tsx --ext js",
-    "lint:fix": "next lint --fix"
+    "lint:fix": "next lint --fix",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
