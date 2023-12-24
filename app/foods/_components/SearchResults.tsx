@@ -21,7 +21,7 @@ type Props = {
 export default function SearchResults({ foods }: Props) {
   const searchParams = useSearchParams();
   // get search params
-  const queryParam = searchParams.get('searchQuery');
+  const queryParam = searchParams.get('search_query');
   const categoryParam = searchParams.get('category') as Category;
   const minCalorieParam = parseInt(searchParams.get('min_calories')!);
   const maxCalorieParam = parseInt(searchParams.get('max_calories')!);

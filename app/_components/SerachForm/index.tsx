@@ -1,16 +1,10 @@
 'use client';
 
 import type { Food } from '@prisma/client';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useCallback } from 'react';
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 import FilterSlider from './FilterSlider';
 import QueryCategoryInput from './QueryCategoryInput';
@@ -21,8 +15,6 @@ type Props = {
 };
 
 export default function NewSearchForm({ foods }: Props) {
-  const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
 
   const updateQueryString = useCallback(
@@ -45,8 +37,7 @@ export default function NewSearchForm({ foods }: Props) {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardTitle>Card Title</CardTitle>
-        <CardDescription>Card Description</CardDescription>
+        <CardTitle>Search Filters</CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
         <QueryNameInput updateQueryString={updateQueryString} />

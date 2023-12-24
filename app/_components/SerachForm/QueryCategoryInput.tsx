@@ -37,7 +37,7 @@ export default function QueryCategoryInput({ updateQueryString }: Props) {
   }, [debouncedValue, pathname, router, updateQueryString]);
 
   return (
-    <Select onValueChange={val => setValue(val)}>
+    <Select onValueChange={val => setValue(val)} defaultValue={value}>
       <SelectTrigger>
         <SelectValue placeholder="Category" className="capitalize" />
       </SelectTrigger>
