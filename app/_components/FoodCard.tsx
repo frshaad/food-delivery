@@ -26,13 +26,13 @@ export default function FoodCard({ food }: Props) {
   return (
     <div className="relative flex h-40 w-72 min-w-[275px] flex-col items-center justify-around rounded-lg border bg-card py-2 pr-4 backdrop-blur-lg transition hover:shadow-lg md:min-w-[300px]">
       <div className="flex w-full items-center justify-between">
-        <div className="-mt-16 h-36 w-36 drop-shadow-2xl">
+        <div className="-mt-16 size-36 drop-shadow-2xl">
           <Image
             src={imageUrl}
             alt=""
             width={300}
             height={300}
-            className="h-full w-full object-contain opacity-0 transition-opacity duration-300"
+            className="size-full object-contain opacity-0 transition-opacity duration-300"
             onLoadingComplete={image => image.classList.remove('opacity-0')}
             priority
           />

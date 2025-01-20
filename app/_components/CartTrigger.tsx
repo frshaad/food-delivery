@@ -58,7 +58,7 @@ export default function CartTrigger() {
             {!isCartEmpty && (
               <Badge
                 variant="destructive"
-                className="absolute -top-3 right-[-14px] flex h-6 w-6 items-center justify-center rounded-full p-1"
+                className="absolute -top-3 right-[-14px] flex size-6 items-center justify-center rounded-full p-1"
               >
                 {cartItems.length}
               </Badge>
@@ -129,7 +129,7 @@ export default function CartTrigger() {
                 <div className="flex w-full items-center justify-between gap-2 py-10 pb-20">
                   <Popover>
                     <PopoverTrigger className="flex flex-1 items-center pl-2">
-                      <Eraser className="mr-2 h-4 w-4" />
+                      <Eraser className="mr-2 size-4" />
                       Clear Cart
                     </PopoverTrigger>
                     <PopoverContent className="flex items-center justify-between">
@@ -145,7 +145,7 @@ export default function CartTrigger() {
                   </Popover>
 
                   <Button variant="default" className="flex-1">
-                    <CreditCard className="mr-2 h-4 w-4" />
+                    <CreditCard className="mr-2 size-4" />
                     Check Out
                   </Button>
                 </div>

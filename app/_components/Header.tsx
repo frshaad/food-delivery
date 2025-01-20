@@ -20,7 +20,7 @@ export default function Header() {
           )}
         >
           <FishSymbol size={40} />
-          <span className="relative top-[1px]">Fin & Flavor</span>
+          <span className="relative top-px">Fin & Flavor</span>
         </Link>
         <div className="flex items-center gap-6 sm:gap-12">
           <CartTrigger />

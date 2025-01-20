@@ -68,7 +68,7 @@ export default function CartItem({ food }: Props) {
             </Button>
             <Badge
               variant="default"
-              className="flex h-10 w-10 items-center justify-center"
+              className="flex size-10 items-center justify-center"
             >
               {quantity}
             </Badge>
